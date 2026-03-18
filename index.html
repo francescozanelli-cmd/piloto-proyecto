@@ -44,7 +44,11 @@ Cal("init", "pilotouse", { origin: "https://cal.com" });
 Cal.ns.pilotouse("inline", {
   elementOrSelector: "[data-cal-namespace='pilotouse']",
   calLink: "francesco-zanelli-qqshzc/15min",
-  layout: "month_view"
+  layout: "month_view",
+  config: {
+    hideEventTypeDetails: true,
+    layout: "month_view"
+  }
 }); 
 Cal.ns.pilotouse("ui", {
   theme: "dark",
