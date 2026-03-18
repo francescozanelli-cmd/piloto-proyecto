@@ -7,10 +7,63 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@400;500;700;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+ 
+<!-- ═══════════════════════════════════════
+     CAL.COM EMBED — Script de inicialización
+     Usuario: francesco-zanelli-qqshzc
+     Evento:  15min
+════════════════════════════════════════ -->
+<script>
+(function (C, A, L) {
+  let p = function (a, ar) { a.q.push(ar); };
+  let d = C.document;
+  C.Cal = C.Cal || function () {
+    let cal = C.Cal; let ar = arguments;
+    if (!cal.loaded) {
+      cal.ns = {}; cal.q = cal.q || [];
+      d.head.appendChild(d.createElement("script")).src = A;
+      cal.loaded = true;
+    }
+    if (ar[0] === L) {
+      const api = function () { p(api, arguments); };
+      const namespace = ar[1];
+      api.q = api.q || [];
+      if (typeof namespace === "string") {
+        cal.ns[namespace] = cal.ns[namespace] || api;
+        p(cal.ns[namespace], ar);
+        p(cal, ["initNamespace", namespace]);
+      } else p(cal, ar);
+      return;
+    }
+    p(cal, ar);
+  };
+})(window, "https://app.cal.com/embed/embed.js", "init");
+ 
+Cal("init", "pilotouse", { origin: "https://cal.com" });
+ 
+Cal.ns.pilotouse("ui", {
+  theme: "dark",
+  hideEventTypeDetails: false,
+  layout: "month_view",
+  cssVarsPerTheme: {
+    dark: {
+      "cal-brand":          "#C8F075",
+      "cal-brand-emphasis": "#A8D055",
+      "cal-brand-text":     "#0D0F14",
+      "cal-bg":             "#0D0F14",
+      "cal-bg-emphasis":    "#1A1D24",
+      "cal-bg-subtle":      "#141720",
+      "cal-border":         "#2A2D35",
+      "cal-border-emphasis":"#3A3D45",
+      "cal-text":           "#F5F3EE",
+      "cal-text-emphasis":  "#FFFFFF",
+      "cal-text-subtle":    "#8B8A85"
+    }
+  }
+});
+</script>
+ 
 <style>
-/* ============================================================
-   TOKENS — Manual de Marca Piloto v1.0
-   ============================================================ */
 :root {
   --negro:    #0D0F14;
   --lima:     #C8F075;
@@ -43,7 +96,6 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
-/* Grid de fondo — del manual */
 body::after {
   content: '';
   position: fixed; inset: 0;
@@ -53,16 +105,10 @@ body::after {
   pointer-events: none;
   z-index: 0;
 }
-
-/* ============================================================
-   TIPOGRAFÍA — escala oficial del manual
-   ============================================================ */
 h1, h2, h3 { font-family: 'Inter', sans-serif; line-height: 1.1; letter-spacing: -0.02em; }
 h1 { font-weight: 800; }
 h2 { font-weight: 700; }
 h3 { font-weight: 700; }
-
-/* Etiqueta: DM Sans 300 · 10px · uppercase · spacing .18em */
 .lbl-pill {
   display: inline-flex; align-items: center; gap: 8px;
   font-family: 'Inter', sans-serif; font-weight: 300;
@@ -77,11 +123,6 @@ h3 { font-weight: 700; }
   animation: blink 2s ease-in-out infinite;
 }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.35} }
-
-/* ============================================================
-   BOTONES — del manual de aplicaciones
-   ============================================================ */
-/* CTA Principal: lima · negro · DM Sans 500 */
 .btn-p {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--lima); color: var(--negro);
@@ -95,8 +136,6 @@ h3 { font-weight: 700; }
 .btn-p-lg { font-size: 14px; padding: 13px 28px; }
 .btn-p svg { transition: transform .2s; }
 .btn-p:hover svg { transform: translateX(2px); }
-
-/* Secundario: borde grafito · texto muted */
 .btn-s {
   display: inline-flex; align-items: center; gap: 8px;
   background: transparent; color: var(--ts);
@@ -108,10 +147,6 @@ h3 { font-weight: 700; }
 }
 .btn-s:hover { border-color: var(--ts); color: var(--tp); }
 .btn-s-lg { font-size: 14px; padding: 12px 24px; }
-
-/* ============================================================
-   BADGES — del manual
-   ============================================================ */
 .bdg {
   display: inline-flex; align-items: center;
   font-family: 'Inter', sans-serif; font-size: 10px;
@@ -120,16 +155,8 @@ h3 { font-weight: 700; }
 .bdg-l { background: var(--l12); color: var(--lima); border: 0.5px solid var(--l25); }
 .bdg-d { background: var(--s1); color: var(--ts); border: 0.5px solid var(--brd2); }
 .bdg-g { background: rgba(29,158,117,.12); color: #1D9E75; border: 0.5px solid rgba(29,158,117,.25); }
-
-/* ============================================================
-   LAYOUT
-   ============================================================ */
 .w { max-width: 1120px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 section { position: relative; overflow: hidden; }
-
-/* ============================================================
-   NAV
-   ============================================================ */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -139,56 +166,33 @@ section { position: relative; overflow: hidden; }
 }
 .nav.sc { height: 56px; }
 .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-/* Syne 800 */
 .nav-wm { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -.5px; color: var(--tp); line-height: 1; }
 .nav-wm .dot { color: var(--lima); }
 .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-/* DM Sans 400 · 13px */
 .nav-links a { text-decoration: none; font-size: 13px; font-weight: 400; color: var(--tm); transition: color .2s; }
 .nav-links a:hover { color: var(--tp); }
-
-/* ============================================================
-   HERO
-   ============================================================ */
 .hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 0 80px; }
-/* Línea lima superior — como portada del manual */
 .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--lima); z-index: 2; }
-/* Anillos — como cover del manual */
 .ring1 { position: absolute; right: -60px; top: 50%; transform: translateY(-50%); width: 520px; height: 520px; border-radius: 50%; border: 0.5px solid var(--brd); pointer-events: none; }
 .ring2 { position: absolute; right: 80px; top: 50%; transform: translateY(-50%); width: 320px; height: 320px; border-radius: 50%; border: 0.5px solid var(--brd2); pointer-events: none; }
 .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; position: relative; z-index: 1; }
-
-/* Syne 800 · display */
 h1.ht { font-size: clamp(36px,4.5vw,58px); color: var(--tp); margin-bottom: 20px; letter-spacing: -.04em; font-family: 'Inter', sans-serif; font-weight: 900; }
 h1.ht .ac { color: var(--lima); }
-
-/* DM Sans 300 · cuerpo */
 .hb { font-size: 15px; font-weight: 300; color: var(--ts); line-height: 1.7; margin-bottom: 36px; max-width: 420px; }
-
 .hact { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
-
-/* DM Sans 400 · 11px */
 .hmc { font-size: 11px; font-weight: 400; color: var(--tm); display: flex; align-items: center; gap: 5px; }
 .hmc svg { color: var(--lima); flex-shrink: 0; }
-
 .hstats { display: flex; gap: 28px; margin-top: 40px; padding-top: 36px; border-top: 0.5px solid var(--brd); }
-/* Syne 800 */
 .sn { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 28px; color: var(--tp); line-height: 1; }
 .sn .u { color: var(--lima); font-size: 20px; }
-/* DM Sans 300 · 11px */
 .sl { font-size: 11px; font-weight: 300; color: var(--tm); margin-top: 3px; letter-spacing: .04em; }
-
-/* Tarjeta hero */
 .hcard { background: var(--s1); border: 0.5px solid var(--brd); border-radius: var(--r16); overflow: hidden; position: relative; }
 .hcard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg,transparent,var(--l25),transparent); }
-
 .ctbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 0.5px solid var(--brd); }
 .cdots { display: flex; gap: 5px; }
 .cdots span { width: 9px; height: 9px; border-radius: 50%; }
 .cr { background: #ff5f57; } .cy { background: #febc2e; } .cg { background: #28c840; }
-/* DM Sans 300 · 10px · uppercase */
 .clbl { font-size: 10px; font-weight: 300; letter-spacing: .12em; text-transform: uppercase; color: var(--tm); }
-
 .cbody { padding: 16px; }
 .leads { display: flex; flex-direction: column; gap: 8px; }
 .lrow { display: flex; align-items: center; gap: 12px; padding: 10px 12px; background: rgba(255,255,255,.025); border: 0.5px solid var(--brd); border-radius: var(--r8); animation: fi .4s ease both; }
@@ -199,49 +203,27 @@ h1.ht .ac { color: var(--lima); }
 .ab { background: rgba(100,160,255,.12); color: #64a0ff; }
 .ag { background: rgba(255,255,255,.05); color: var(--grafito); }
 .linfo { flex: 1; min-width: 0; }
-/* DM Sans 500 · 12px */
 .lname { font-size: 12px; font-weight: 500; color: var(--tp); }
-/* DM Sans 300 · 11px */
 .ldet { font-size: 11px; font-weight: 300; color: var(--tm); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
 .cfoot { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-top: 0.5px solid var(--brd); margin-top: 4px; }
 .cfl { font-size: 11px; font-weight: 300; color: var(--tm); }
-/* Syne 800 · lima */
 .cfv { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 18px; color: var(--lima); }
-
-/* Mini card flotante */
 .hfloat { position: absolute; bottom: -20px; left: -28px; background: var(--s1); border: 0.5px solid var(--brd); border-radius: var(--r10); padding: 12px 14px; display: flex; align-items: center; gap: 10px; box-shadow: 0 16px 40px rgba(0,0,0,.5); animation: flt 4s ease-in-out infinite; z-index: 2; }
 @keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .ficon { width: 32px; height: 32px; border-radius: 8px; background: var(--l12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .fval { font-size: 13px; font-weight: 500; color: var(--tp); }
 .fsub { font-size: 11px; font-weight: 300; color: var(--tm); }
-
-/* ============================================================
-   SECCIÓN GENÉRICA
-   ============================================================ */
 .sh { text-align: center; max-width: 600px; margin: 0 auto 60px; }
 .sh .lbl-pill { margin-bottom: 18px; }
-/* Syne 700 */
 .sh h2 { font-size: clamp(28px,3.5vw,40px); margin-bottom: 14px; color: var(--tp); }
-/* DM Sans 400 · 14px */
 .sh p { font-size: 14px; font-weight: 400; color: var(--ts); line-height: 1.7; }
-
-/* ============================================================
-   PROBLEMA
-   ============================================================ */
 .problem { padding: 112px 0; border-top: 0.5px solid var(--brd); }
 .pgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--brd); border-radius: var(--r16); overflow: hidden; border: 0.5px solid var(--brd); }
 .pcard { background: var(--negro); padding: 36px 30px; transition: background .25s; }
 .pcard:hover { background: var(--s1); }
 .pem { font-size: 24px; margin-bottom: 14px; display: block; }
-/* Syne 700 · 16px */
 .ptit { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; color: var(--tp); margin-bottom: 8px; line-height: 1.3; }
-/* DM Sans 400 · 13px */
 .pdesc { font-size: 13px; font-weight: 400; color: var(--ts); line-height: 1.65; }
-
-/* ============================================================
-   SERVICIOS
-   ============================================================ */
 .services { padding: 112px 0; border-top: 0.5px solid var(--brd); }
 .shdr { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 56px; }
 .shdr h2 { font-size: clamp(28px,3.5vw,40px); }
@@ -252,20 +234,12 @@ h1.ht .ac { color: var(--lima); }
 .sc::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1.5px; background: var(--lima); transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
 .sc:hover { background: var(--noche); }
 .sc:hover::after { transform: scaleX(1); }
-/* Syne 800 · decorativo */
 .snum { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 40px; color: rgba(255,255,255,.03); line-height: 1; margin-bottom: 16px; }
 .sico { width: 38px; height: 38px; background: var(--l12); border-radius: var(--r8); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; transition: background .25s; }
 .sc:hover .sico { background: var(--l20); }
-/* Syne 700 · 14px */
 .sname { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; color: var(--tp); line-height: 1.3; margin-bottom: 8px; }
-/* DM Sans 400 · 12px */
 .sdesc { font-size: 12px; font-weight: 400; color: var(--ts); line-height: 1.6; }
-/* DM Sans 500 · lima */
 .ssave { margin-top: 14px; font-size: 11px; font-weight: 500; color: var(--lima); }
-
-/* ============================================================
-   CÓMO FUNCIONA
-   ============================================================ */
 .how { padding: 112px 0; background: var(--s1); border-top: 0.5px solid var(--brd); border-bottom: 0.5px solid var(--brd); }
 .how-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .howsteps { display: flex; flex-direction: column; }
@@ -274,13 +248,9 @@ h1.ht .ac { color: var(--lima); }
 .hstep:last-child { border-bottom: none; padding-bottom: 0; }
 .pip { width: 36px; height: 36px; border-radius: 50%; border: 0.5px solid var(--brd2); display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 13px; color: var(--tm); flex-shrink: 0; transition: all .25s; }
 .hstep.active .pip { background: var(--lima); border-color: var(--lima); color: var(--negro); }
-/* Syne 700 · 17px */
 .stitl { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 17px; color: var(--tp); margin-bottom: 5px; transition: color .25s; }
 .hstep.active .stitl { color: var(--lima); }
-/* DM Sans 400 · 13px */
 .sdescr { font-size: 13px; font-weight: 400; color: var(--ts); line-height: 1.65; }
-
-/* Demo screen */
 .dscreen { background: var(--negro); border: 0.5px solid var(--brd); border-radius: var(--r16); overflow: hidden; box-shadow: 0 32px 64px rgba(0,0,0,.5); }
 .dsbar { display: flex; align-items: center; gap: 16px; padding: 12px 16px; border-bottom: 0.5px solid var(--brd); background: rgba(255,255,255,.02); }
 .dsdots { display: flex; gap: 4px; }
@@ -291,53 +261,38 @@ h1.ht .ac { color: var(--lima); }
 .panel { display: none; animation: pf .3s ease; }
 .panel.active { display: block; }
 @keyframes pf{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-
-/* WhatsApp chat mock — del manual */
 .wachat { display: flex; flex-direction: column; gap: 8px; }
 .wamsg { padding: 8px 12px; border-radius: 8px; font-size: 12px; line-height: 1.55; max-width: 78%; }
 .wamsg.bot { background: #005C4B; color: #E9EAE9; align-self: flex-start; border-radius: 8px 8px 8px 0; }
 .wamsg.usr { background: rgba(255,255,255,.06); color: var(--ts); align-self: flex-end; border-radius: 8px 8px 0 8px; }
 .wat { font-size: 10px; color: var(--tm); text-align: right; margin-top: 3px; }
-
 .crmrows { display: flex; flex-direction: column; gap: 7px; }
 .crmrow { display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(255,255,255,.025); border: 0.5px solid var(--brd); border-radius: var(--r8); font-size: 12px; }
 .crmn { color: var(--tp); flex: 1; font-weight: 500; }
 .crms { color: var(--ts); font-size: 11px; }
-
 .mitems { display: flex; flex-direction: column; gap: 8px; }
 .mitem { display: flex; gap: 12px; padding: 12px; background: rgba(255,255,255,.025); border: 0.5px solid var(--brd); border-radius: var(--r8); }
 .mthumb { width: 44px; height: 44px; border-radius: var(--r8); background: var(--s2); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
 .mprop { font-size: 12px; font-weight: 500; color: var(--tp); }
 .mbuy { font-size: 11px; color: var(--lima); margin-top: 3px; }
-
 .dgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .dcell { padding: 14px; border-radius: var(--r8); border: 0.5px solid; }
 .dc-l { background: var(--l12); border-color: var(--l25); }
 .dc-d { background: rgba(255,255,255,.03); border-color: var(--brd); }
 .dc-b { background: rgba(100,160,255,.08); border-color: rgba(100,160,255,.2); }
-/* Syne 800 */
 .dval { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 22px; }
 .dv-l{color:var(--lima)} .dv-c{color:var(--tp)} .dv-b{color:#64a0ff}
-/* DM Sans 300 */
 .dlbl { font-size: 11px; font-weight: 300; color: var(--ts); margin-top: 3px; }
-
-/* ============================================================
-   PRECIOS
-   ============================================================ */
 .pricing { padding: 112px 0; border-top: 0.5px solid var(--brd); }
 .plans { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--brd); border-radius: var(--r16); overflow: hidden; border: 0.5px solid var(--brd); margin-top: 56px; }
 .plan { background: var(--s1); padding: 36px 28px; position: relative; transition: background .25s; }
 .plan:hover { background: var(--noche); }
 .plan.ft { background: var(--negro); border-top: 1.5px solid var(--lima); }
 .plan-tag { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--lima); color: var(--negro); font-size: 9px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; padding: 3px 12px; border-radius: 0 0 6px 6px; white-space: nowrap; }
-/* Syne 800 */
 .pname { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 20px; color: var(--tp); margin-bottom: 6px; }
-/* DM Sans 300 · 12px */
 .pfor { font-size: 12px; font-weight: 300; color: var(--ts); line-height: 1.55; margin-bottom: 24px; }
-/* Syne 800 · precio */
 .pprice { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 36px; color: var(--tp); line-height: 1; margin-bottom: 4px; }
 .pprice .u { font-size: 16px; font-family: 'Inter', sans-serif; font-weight: 300; color: var(--ts); }
-/* DM Sans 300 · 12px */
 .psetup { font-size: 12px; font-weight: 300; color: var(--tm); margin-bottom: 24px; }
 .psetup strong { color: var(--ts); font-weight: 500; }
 .pdiv { height: 0.5px; background: var(--brd); margin-bottom: 20px; }
@@ -350,79 +305,37 @@ h1.ht .ac { color: var(--lima); }
 .btn-plan:hover { border-color: var(--ts); color: var(--tp); }
 .btn-plan.bft { background: var(--lima); color: var(--negro); border-color: var(--lima); }
 .btn-plan.bft:hover { background: #d6ff82; box-shadow: 0 8px 24px rgba(200,240,117,.22); }
-
-/* ============================================================
-   RESERVA
-   ============================================================ */
+ 
+/* ══════════════════════════════
+   SECCIÓN RESERVA — Cal.com embed
+   ══════════════════════════════ */
 .booking { padding: 112px 0; background: var(--s1); border-top: 0.5px solid var(--brd); border-bottom: 0.5px solid var(--brd); }
 .booking::after { content: ''; position: absolute; right: -80px; top: 50%; transform: translateY(-50%); width: 400px; height: 400px; border-radius: 50%; border: 0.5px solid var(--brd); pointer-events: none; }
-.book-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; position: relative; z-index: 1; }
+.book-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 72px; align-items: start; position: relative; z-index: 1; }
 .bleft h2 { font-size: clamp(26px,3.2vw,38px); margin-bottom: 16px; }
 .bleft h2 .ac { color: var(--lima); }
 .bleft p { font-size: 14px; font-weight: 300; color: var(--ts); line-height: 1.7; margin-bottom: 28px; }
-.bsteps { display: flex; flex-direction: column; gap: 14px; }
+.bsteps { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
 .bstep { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 400; color: var(--ts); }
 .bsnum { width: 24px; height: 24px; border-radius: 50%; background: var(--l12); border: 0.5px solid var(--l25); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: var(--lima); flex-shrink: 0; }
-
-.bform { background: var(--negro); border: 0.5px solid var(--brd); border-radius: var(--r16); overflow: hidden; }
-.fhead { padding: 20px 24px; border-bottom: 0.5px solid var(--brd); display: flex; align-items: center; justify-content: space-between; }
-/* Syne 700 */
-.ftitl { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; color: var(--tp); }
-/* DM Sans 300 */
-.fsub { font-size: 12px; font-weight: 300; color: var(--tm); margin-top: 2px; }
-.fbdgs { display: flex; gap: 6px; }
-
-.fbody { padding: 24px; }
-.fstep { display: none; }
-.fstep.active { display: block; animation: pf .3s ease; }
-.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-.fg { margin-bottom: 12px; }
-.fg:last-child { margin-bottom: 0; }
-/* DM Sans 300 · 10px · uppercase */
-.flbl { display: block; font-size: 10px; font-weight: 300; letter-spacing: .12em; text-transform: uppercase; color: var(--tm); margin-bottom: 7px; }
-.finp { width: 100%; background: rgba(255,255,255,.03); border: 0.5px solid var(--brd); border-radius: var(--r8); padding: 11px 14px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 400; color: var(--tp); outline: none; transition: border-color .2s, box-shadow .2s; }
-.finp::placeholder { color: var(--tm); }
-.finp:focus { border-color: rgba(200,240,117,.35); box-shadow: 0 0 0 3px var(--l12); }
-
-/* Calendario */
-.chead { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-/* Syne 700 */
-.cmon { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; color: var(--tp); }
-.cnav { display: flex; gap: 6px; }
-.carr { width: 28px; height: 28px; border-radius: var(--r8); border: 0.5px solid var(--brd2); background: transparent; color: var(--tm); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 300; transition: all .2s; }
-.carr:hover { border-color: var(--ts); color: var(--tp); }
-.cgrid { display: grid; grid-template-columns: repeat(7,1fr); gap: 3px; margin-bottom: 16px; }
-.cdname { text-align: center; font-size: 10px; font-weight: 300; color: var(--tm); letter-spacing: .05em; padding: 3px; }
-.cday { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 6px; font-size: 12px; font-weight: 400; cursor: pointer; transition: all .15s; color: var(--tp); }
-.cday:hover:not(.empty):not(.past){background:rgba(255,255,255,.06)}
-.cday.empty{pointer-events:none}
-.cday.past{color:var(--brd2);pointer-events:none}
-.cday.avail:hover{background:var(--l12);color:var(--lima)}
-.cday.sel{background:var(--lima);color:var(--negro);font-weight:500}
-.cday.tod{border:0.5px solid var(--brd2)}
-.tgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; }
-.tslot { padding: 8px 4px; text-align: center; font-size: 12px; font-weight: 400; border: 0.5px solid var(--brd); border-radius: var(--r8); cursor: pointer; color: var(--tp); transition: all .15s; }
-.tslot:hover{border-color:var(--l25);color:var(--lima)}
-.tslot.sel{border-color:var(--lima);background:var(--l12);color:var(--lima)}
-
-.ffoot { padding: 16px 24px; border-top: 0.5px solid var(--brd); }
-.bsub { width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--lima); color: var(--negro); font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; padding: 14px; border-radius: var(--rp); border: none; cursor: pointer; transition: background .2s, box-shadow .2s; }
-.bsub:hover{background:#d6ff82;box-shadow:0 8px 24px rgba(200,240,117,.2)}
-/* DM Sans 300 · 11px */
-.fmc { text-align: center; font-size: 11px; font-weight: 300; color: var(--tm); margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 5px; }
-.fmc svg { color: var(--lima); }
-
-.succ { display: none; padding: 36px 24px; text-align: center; animation: pf .4s ease; }
-.succ.active { display: block; }
-.sicon { width: 64px; height: 64px; border-radius: 50%; background: var(--l12); border: 0.5px solid var(--l25); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 26px; }
-/* Syne 700 */
-.stitl2 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; color: var(--tp); margin-bottom: 10px; }
-.sdesc2 { font-size: 13px; font-weight: 300; color: var(--ts); line-height: 1.65; }
-.sdet { margin-top: 16px; padding: 14px; background: var(--l12); border: 0.5px solid var(--l25); border-radius: var(--r8); font-size: 12px; font-weight: 500; color: var(--lima); }
-
-/* ============================================================
-   FAQ
-   ============================================================ */
+/* Garantías bajo el calendario */
+.cal-guarantees { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 16px; }
+.cal-g { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--tm); }
+.cal-g-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--lima); flex-shrink: 0; }
+/* Contenedor del embed de Cal.com */
+.cal-embed-wrap {
+  background: var(--negro);
+  border: 0.5px solid var(--brd);
+  border-radius: var(--r16);
+  overflow: hidden;
+  min-height: 600px;
+}
+/* El div interno que Cal.com rellena */
+.cal-embed-wrap [data-cal-namespace="pilotouse"] {
+  width: 100%;
+  min-height: 600px;
+}
+ 
 .faq { padding: 112px 0; border-top: 0.5px solid var(--brd); }
 .flist { max-width: 680px; margin: 56px auto 0; display: flex; flex-direction: column; gap: 1px; border-radius: var(--r16); overflow: hidden; border: 0.5px solid var(--brd); background: var(--brd); }
 .fi { background: var(--s1); overflow: hidden; }
@@ -430,45 +343,27 @@ h1.ht .ac { color: var(--lima); }
 .fq:hover { color: var(--lima); }
 .ftog { width: 24px; height: 24px; border-radius: 50%; border: 0.5px solid var(--brd2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; font-weight: 300; color: var(--tm); transition: all .25s; }
 .fi.open .ftog { background: var(--lima); border-color: var(--lima); color: var(--negro); transform: rotate(45deg); }
-/* DM Sans 300 */
 .fa { padding: 0 22px; max-height: 0; overflow: hidden; font-size: 13px; font-weight: 300; color: var(--ts); line-height: 1.7; transition: all .3s ease; }
 .fi.open .fa { padding: 0 22px 18px; max-height: 180px; }
-
-/* ============================================================
-   CTA FINAL
-   ============================================================ */
 .ctaf { padding: 112px 0; text-align: center; border-top: 0.5px solid var(--brd); }
-/* Línea lima top */
 .ctaf::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--lima); }
 .ctaw { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
 .ctaw h2 { font-size: clamp(32px,4vw,52px); margin-bottom: 16px; }
 .ctaw h2 .ac { color: var(--lima); }
-/* DM Sans 300 */
 .ctaw p { font-size: 15px; font-weight: 300; color: var(--ts); margin-bottom: 40px; line-height: 1.7; }
 .ctabtns { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
 .ctachks { margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
-/* DM Sans 300 · 11px */
 .ctachk { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 300; color: var(--tm); }
 .ctachk svg { color: var(--lima); }
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
 .footer { padding: 40px 0; border-top: 0.5px solid var(--brd); }
 .finner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-/* Syne 800 */
 .fwm { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; color: var(--tp); letter-spacing: -.5px; }
 .fwm .dot { color: var(--lima); }
-/* DM Sans 300 · 11px */
 .ftag { font-size: 11px; font-weight: 300; color: var(--tm); margin-top: 2px; letter-spacing: .04em; }
 .flinks { display: flex; gap: 20px; }
 .flinks a { font-size: 12px; font-weight: 400; color: var(--tm); text-decoration: none; transition: color .2s; }
 .flinks a:hover { color: var(--ts); }
 .fcopy { font-size: 11px; font-weight: 300; color: var(--brd2); }
-
-/* ============================================================
-   ANIMACIONES
-   ============================================================ */
 .rev { opacity: 0; transform: translateY(20px); transition: opacity .55s ease, transform .55s ease; }
 .rev.vis { opacity: 1; transform: translateY(0); }
 .stag > * { opacity: 0; transform: translateY(16px); transition: opacity .45s ease, transform .45s ease; }
@@ -478,10 +373,6 @@ h1.ht .ac { color: var(--lima); }
 .stag.vis > *:nth-child(4){opacity:1;transform:translateY(0);transition-delay:.24s}
 .stag.vis > *:nth-child(5){opacity:1;transform:translateY(0);transition-delay:.32s}
 .stag.vis > *:nth-child(6){opacity:1;transform:translateY(0);transition-delay:.40s}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
 @media(max-width:1024px){
   .hero-inner{grid-template-columns:1fr;gap:48px}
   .ring1,.ring2{display:none}
@@ -500,7 +391,6 @@ h1.ht .ac { color: var(--lima); }
   .sgrid{grid-template-columns:1fr}
   .sgrid .sc:last-child{grid-column:auto}
   .hstats{gap:20px}
-  .frow{grid-template-columns:1fr}
   .finner{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:480px){
@@ -512,8 +402,8 @@ h1.ht .ac { color: var(--lima); }
 </style>
 </head>
 <body>
-
-<!-- ── NAV ── -->
+ 
+<!-- NAV -->
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">
     <svg width="32" height="32" viewBox="0 0 56 56" fill="none">
@@ -545,8 +435,8 @@ h1.ht .ac { color: var(--lima); }
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </a>
 </nav>
-
-<!-- ── HERO ── -->
+ 
+<!-- HERO -->
 <section class="hero">
   <div class="ring1"></div>
   <div class="ring2"></div>
@@ -591,8 +481,8 @@ h1.ht .ac { color: var(--lima); }
     </div>
   </div>
 </section>
-
-<!-- ── PROBLEMA ── -->
+ 
+<!-- PROBLEMA -->
 <section class="problem" id="problema">
   <div class="w">
     <div class="sh rev"><div class="lbl-pill" style="margin-bottom:18px">¿Te suena familiar?</div><h2>El día de un agente sin Pilotouse.</h2><p>Las inmobiliarias no pierden ventas por falta de leads. Las pierden por falta de tiempo para gestionarlos.</p></div>
@@ -606,8 +496,8 @@ h1.ht .ac { color: var(--lima); }
     </div>
   </div>
 </section>
-
-<!-- ── SERVICIOS ── -->
+ 
+<!-- SERVICIOS -->
 <section class="services" id="servicios">
   <div class="w">
     <div class="shdr rev"><div><div class="lbl-pill" style="margin-bottom:16px">5 automatizaciones</div><h2>El sistema que hace <span class="ac">todo lo que no tienes tiempo de hacer.</span></h2></div><p>Cinco módulos conectados que trabajan juntos, de forma automática. Cada uno resuelve un problema real.</p></div>
@@ -620,8 +510,8 @@ h1.ht .ac { color: var(--lima); }
     </div>
   </div>
 </section>
-
-<!-- ── CÓMO FUNCIONA ── -->
+ 
+<!-- CÓMO FUNCIONA -->
 <section class="how" id="como-funciona">
   <div class="w">
     <div class="how-inner">
@@ -630,7 +520,7 @@ h1.ht .ac { color: var(--lima); }
         <h2 class="rev" style="font-size:clamp(26px,3.2vw,38px);margin-bottom:10px">Cuatro pasos.<br>Un sistema que trabaja solo.</h2>
         <p class="rev" style="font-size:14px;font-weight:300;color:#8B8A85;line-height:1.7;margin-bottom:40px">De la primera llamada al sistema funcionando en menos de dos semanas.</p>
         <div class="howsteps">
-          <div class="hstep active" data-n="1"><div class="pip">1</div><div><div class="stitl">Llamada de diagnóstico (20 min)</div><div class="sdescr">Entendemos cómo trabajas, qué canales usas y dónde se pierden más leads.</div></div></div>
+          <div class="hstep active" data-n="1"><div class="pip">1</div><div><div class="stitl">Llamada de diagnóstico (15 min)</div><div class="sdescr">Entendemos cómo trabajas, qué canales usas y dónde se pierden más leads.</div></div></div>
           <div class="hstep" data-n="2"><div class="pip">2</div><div><div class="stitl">Propuesta a medida</div><div class="sdescr">Te enviamos el plan exacto para tu agencia con los módulos que más encajan.</div></div></div>
           <div class="hstep" data-n="3"><div class="pip">3</div><div><div class="stitl">Instalación en 7 días</div><div class="sdescr">Nuestro equipo monta todo mientras tú sigues vendiendo. Conectamos WhatsApp, CRM y portales.</div></div></div>
           <div class="hstep" data-n="4"><div class="pip">4</div><div><div class="stitl">Piloto automático activo</div><div class="sdescr">A partir del día 30, el sistema trabaja solo. Recibes alertas solo cuando algo lo necesita.</div></div></div>
@@ -680,8 +570,8 @@ h1.ht .ac { color: var(--lima); }
     </div>
   </div>
 </section>
-
-<!-- ── PRECIOS ── -->
+ 
+<!-- PRECIOS -->
 <section class="pricing" id="precios">
   <div class="w">
     <div class="sh rev"><div class="lbl-pill" style="margin:0 auto 18px">Planes</div><h2>Para cada tipo de inmobiliaria.</h2><p>Setup único, sin sorpresas. Cancela cuando quieras.</p></div>
@@ -732,11 +622,16 @@ h1.ht .ac { color: var(--lima); }
     </div>
   </div>
 </section>
-
-<!-- ── RESERVA ── -->
+ 
+<!-- ══════════════════════════════════════
+     RESERVA — CAL.COM EMBED REAL
+     Link: francesco-zanelli-qqshzc/15min
+══════════════════════════════════════ -->
 <section class="booking" id="reservar">
   <div class="w">
     <div class="book-inner">
+ 
+      <!-- Columna izquierda: texto -->
       <div class="bleft rev">
         <div class="lbl-pill" style="margin-bottom:18px">Reserva tu demo</div>
         <h2>15 minutos.<br><span class="ac">Sin compromiso.</span><br>Con resultado concreto.</h2>
@@ -746,56 +641,36 @@ h1.ht .ac { color: var(--lima); }
           <div class="bstep"><div class="bsnum">2</div><span>Te mostramos el sistema funcionando en vivo (5 min)</span></div>
           <div class="bstep"><div class="bsnum">3</div><span>Recibes propuesta personalizada al día siguiente</span></div>
         </div>
+        <div class="cal-guarantees">
+          <div class="cal-g"><div class="cal-g-dot"></div>Confirmación inmediata por email</div>
+          <div class="cal-g"><div class="cal-g-dot"></div>Link de Meet automático</div>
+          <div class="cal-g"><div class="cal-g-dot"></div>Recordatorio 1h antes</div>
+          <div class="cal-g"><div class="cal-g-dot"></div>Sin tarjeta de crédito</div>
+        </div>
       </div>
+ 
+      <!-- Columna derecha: Cal.com embed -->
       <div class="rev">
-        <div class="bform">
-          <div class="fhead">
-            <div><div class="ftitl">Reservar llamada de diagnóstico</div><div class="fsub">Primera consulta gratuita · Sin tarjeta</div></div>
-            <div class="fbdgs"><span class="bdg bdg-l">15 min</span><span class="bdg bdg-l">Gratis</span></div>
-          </div>
-          <!-- Step 1 -->
-          <div class="fstep active" id="fs1">
-            <div class="fbody">
-              <div class="frow"><div class="fg"><label class="flbl">Nombre</label><input type="text" class="finp" placeholder="Tu nombre" id="iname"></div><div class="fg"><label class="flbl">Empresa</label><input type="text" class="finp" placeholder="Tu inmobiliaria" id="icomp"></div></div>
-              <div class="fg"><label class="flbl">Email</label><input type="email" class="finp" placeholder="tu@email.com" id="imail"></div>
-              <div class="fg"><label class="flbl">Teléfono</label><input type="tel" class="finp" placeholder="+34 600 000 000" id="iphone"></div>
-            </div>
-            <div class="ffoot">
-              <button class="bsub" id="bs1">Elegir fecha y hora <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-              <p class="fmc"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Tus datos están seguros. Nunca spam.</p>
-            </div>
-          </div>
-          <!-- Step 2 -->
-          <div class="fstep" id="fs2">
-            <div class="fbody">
-              <div class="chead"><span class="cmon" id="cmon"></span><div class="cnav"><button class="carr" id="cprev">‹</button><button class="carr" id="cnext">›</button></div></div>
-              <div class="cgrid" id="cgrid"></div>
-              <div class="flbl" style="margin-bottom:8px">Horarios disponibles</div>
-              <div class="tgrid">
-                <div class="tslot" data-t="9:00">9:00</div><div class="tslot" data-t="9:30">9:30</div><div class="tslot" data-t="10:00">10:00</div>
-                <div class="tslot" data-t="10:30">10:30</div><div class="tslot" data-t="11:00">11:00</div><div class="tslot" data-t="11:30">11:30</div>
-                <div class="tslot" data-t="16:00">16:00</div><div class="tslot" data-t="16:30">16:30</div><div class="tslot" data-t="17:00">17:00</div>
-              </div>
-            </div>
-            <div class="ffoot">
-              <button class="bsub" id="bs2">Confirmar llamada <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></button>
-              <p class="fmc"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Confirmación por email al instante</p>
-            </div>
-          </div>
-          <!-- Éxito -->
-          <div class="succ" id="succ">
-            <div class="sicon">✓</div>
-            <div class="stitl2">¡Llamada confirmada!</div>
-            <div class="sdesc2">Te hemos enviado la invitación al calendario. Cualquier duda: hola@pilotouse.es</div>
-            <div class="sdet" id="sdet">📅 —</div>
+        <div class="cal-embed-wrap">
+          <!--
+            EMBED DE CAL.COM — tu link real
+            Namespace "pilotouse" coincide con Cal("init", "pilotouse") del head
+            data-cal-link = tu-usuario/tu-evento
+          -->
+          <div
+            data-cal-namespace="pilotouse"
+            data-cal-link="francesco-zanelli-qqshzc/15min"
+            data-cal-config='{"layout":"month_view"}'
+            style="width:100%;min-height:600px">
           </div>
         </div>
       </div>
+ 
     </div>
   </div>
 </section>
-
-<!-- ── FAQ ── -->
+ 
+<!-- FAQ -->
 <section class="faq" id="faq">
   <div class="w">
     <div class="sh rev"><div class="lbl-pill" style="margin:0 auto 18px">FAQ</div><h2>Todo lo que necesitas saber.</h2><p>Si tienes más preguntas, escríbenos a hola@pilotouse.es</p></div>
@@ -809,8 +684,8 @@ h1.ht .ac { color: var(--lima); }
     </div>
   </div>
 </section>
-
-<!-- ── CTA FINAL ── -->
+ 
+<!-- CTA FINAL -->
 <section class="ctaf">
   <div class="w">
     <div class="ctaw rev">
@@ -829,8 +704,8 @@ h1.ht .ac { color: var(--lima); }
     </div>
   </div>
 </section>
-
-<!-- ── FOOTER ── -->
+ 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="w">
     <div class="finner">
@@ -847,20 +722,18 @@ h1.ht .ac { color: var(--lima); }
         <div class="ftag">Piloto automático para tu inmobiliaria</div>
       </div>
       <div class="flinks"><a href="mailto:hola@pilotouse.es">hola@pilotouse.es</a><a href="#">Privacidad</a><a href="#">Términos</a></div>
-      <div class="fcopy">© 2026 Pilotouse.</div>
+      <div class="fcopy">© 2025 Pilotouse.</div>
     </div>
   </div>
 </footer>
-
+ 
 <script>
 // Nav scroll
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>50));
-
 // Reveal
 const ob=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');ob.unobserve(x.target);}}),{threshold:.1});
 document.querySelectorAll('.rev,.stag').forEach(el=>ob.observe(el));
-
 // How steps
 const steps=document.querySelectorAll('.hstep');
 let cur=1;
@@ -873,7 +746,6 @@ function act(n){
 }
 steps.forEach(s=>s.addEventListener('click',()=>act(+s.dataset.n)));
 setInterval(()=>act(cur>=4?1:cur+1),3500);
-
 // FAQ
 document.querySelectorAll('.fq').forEach(b=>{
   b.addEventListener('click',()=>{
@@ -882,58 +754,12 @@ document.querySelectorAll('.fq').forEach(b=>{
     if(!was)it.classList.add('open');
   });
 });
-
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const id=a.getAttribute('href').slice(1),el=document.getElementById(id);
     if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'});}
   });
-});
-
-// Calendar
-const MN=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-let cd=new Date();cd.setDate(1);
-let sd=null,st=null;
-function rc(){
-  const y=cd.getFullYear(),m=cd.getMonth();
-  document.getElementById('cmon').textContent=MN[m]+' '+y;
-  const g=document.getElementById('cgrid');g.innerHTML='';
-  ['L','M','X','J','V','S','D'].forEach(d=>{const e=document.createElement('div');e.className='cdname';e.textContent=d;g.appendChild(e);});
-  const f=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate(),tod=new Date();
-  const st2=f===0?6:f-1;
-  for(let i=0;i<st2;i++){const e=document.createElement('div');e.className='cday empty';g.appendChild(e);}
-  for(let d=1;d<=days;d++){
-    const e=document.createElement('div');e.className='cday';e.textContent=d;
-    const dt=new Date(y,m,d);
-    if(dt<new Date(tod.getFullYear(),tod.getMonth(),tod.getDate())||dt.getDay()===0||dt.getDay()===6){e.classList.add('past');}
-    else{e.classList.add('avail');e.addEventListener('click',()=>{document.querySelectorAll('.cday').forEach(c=>c.classList.remove('sel'));e.classList.add('sel');sd=d+' de '+MN[m]+' '+y;});}
-    if(dt.toDateString()===tod.toDateString())e.classList.add('tod');
-    g.appendChild(e);
-  }
-}
-rc();
-document.getElementById('cprev').addEventListener('click',()=>{cd.setMonth(cd.getMonth()-1);rc();});
-document.getElementById('cnext').addEventListener('click',()=>{cd.setMonth(cd.getMonth()+1);rc();});
-document.querySelectorAll('.tslot').forEach(s=>{
-  s.addEventListener('click',()=>{document.querySelectorAll('.tslot').forEach(x=>x.classList.remove('sel'));s.classList.add('sel');st=s.dataset.t;});
-});
-
-// Form
-document.getElementById('bs1').addEventListener('click',()=>{
-  const n=document.getElementById('iname').value.trim(),m=document.getElementById('imail').value.trim();
-  document.getElementById('iname').style.borderColor=n?'':'rgba(226,75,74,.5)';
-  document.getElementById('imail').style.borderColor=m?'':'rgba(226,75,74,.5)';
-  if(!n||!m)return;
-  document.getElementById('fs1').classList.remove('active');
-  document.getElementById('fs2').classList.add('active');
-});
-document.getElementById('bs2').addEventListener('click',()=>{
-  if(!sd||!st){document.getElementById('cgrid').style.outline='1px solid rgba(226,75,74,.3)';return;}
-  document.getElementById('fs2').classList.remove('active');
-  const n=document.getElementById('iname').value.trim();
-  document.getElementById('sdet').textContent='📅 '+sd+' · '+st+'h — Te llamamos nosotros, '+n+'.';
-  document.getElementById('succ').classList.add('active');
 });
 </script>
 </body>
