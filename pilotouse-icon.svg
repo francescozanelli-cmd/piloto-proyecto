@@ -1,13 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
-
-  <!-- Fondo negro -->
-  <rect width="1080" height="1080" fill="#0D0F14" rx="216"/>
-
+ 
+ 
+ 
   <!-- Anillo exterior -->
   <circle cx="540" cy="540" r="380" fill="none" stroke="#2A2D35" stroke-width="6"/>
   <!-- Anillo interior -->
   <circle cx="540" cy="540" r="256" fill="none" stroke="#1E2128" stroke-width="4"/>
-
+ 
   <!-- Ticks cardinales -->
   <!-- Norte (lima) -->
   <line x1="540" y1="160" x2="540" y2="252" stroke="#C8F075" stroke-width="20" stroke-linecap="round"/>
@@ -17,20 +16,20 @@
   <line x1="160" y1="540" x2="252" y2="540" stroke="#2A2D35" stroke-width="14" stroke-linecap="round"/>
   <!-- Este -->
   <line x1="828" y1="540" x2="920" y2="540" stroke="#2A2D35" stroke-width="14" stroke-linecap="round"/>
-
+ 
   <!-- Ticks diagonales menores -->
   <line x1="268" y1="268" x2="338" y2="338" stroke="#1E2128" stroke-width="8" stroke-linecap="round"/>
   <line x1="742" y1="742" x2="812" y2="812" stroke="#1E2128" stroke-width="8" stroke-linecap="round"/>
   <line x1="812" y1="268" x2="742" y2="338" stroke="#1E2128" stroke-width="8" stroke-linecap="round"/>
   <line x1="268" y1="812" x2="338" y2="742" stroke="#1E2128" stroke-width="8" stroke-linecap="round"/>
-
+ 
   <!-- Aguja Norte — Lima -->
   <polygon points="540,252 506,540 540,500 574,540" fill="#C8F075"/>
   <!-- Aguja Sur — Grafito -->
   <polygon points="540,828 506,540 540,580 574,540" fill="#2A2D35"/>
-
+ 
   <!-- Centro pip -->
   <circle cx="540" cy="540" r="44" fill="#C8F075"/>
   <circle cx="540" cy="540" r="20" fill="#0D0F14"/>
-
+ 
 </svg>
