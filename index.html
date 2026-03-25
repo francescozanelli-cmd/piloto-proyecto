@@ -766,6 +766,288 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
   </div>
+     <!-- TOGGLE COMPARACIÓN -->
+<div style="text-align:center;margin-top:32px" class="rev">
+  <button id="toggle-compare" class="btn-s btn-s-lg" style="margin:0 auto">
+    Ver comparación completa
+    <svg id="toggle-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform .3s"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+</div>
+
+<!-- TABLA COMPARACIÓN -->
+<div id="compare-table" style="display:none;margin-top:40px;overflow-x:auto">
+  <table style="width:100%;border-collapse:collapse;font-size:13px">
+    <colgroup>
+      <col style="width:35%">
+      <col style="width:21.6%">
+      <col style="width:21.6%">
+      <col style="width:21.6%">
+    </colgroup>
+
+    <!-- CABECERA -->
+    <thead>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <th style="padding:16px 20px;text-align:left;font-weight:400;color:var(--ts);font-size:11px;letter-spacing:.1em;text-transform:uppercase"></th>
+        <th style="padding:16px 20px;text-align:center">
+          <div style="font-weight:800;font-size:16px;color:var(--tp)">Starter</div>
+          <div style="font-weight:800;font-size:22px;color:var(--tp);line-height:1.1">150 <span style="font-size:13px;font-weight:300;color:var(--ts)">EUR/mes</span></div>
+          <div style="font-size:11px;font-weight:300;color:var(--tm);margin-top:2px">Setup: 500 EUR</div>
+        </th>
+        <th style="padding:16px 20px;text-align:center;border-top:1.5px solid var(--lima);background:var(--negro);position:relative">
+          <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--lima);color:var(--negro);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:3px 12px;border-radius:0 0 6px 6px;white-space:nowrap">Más popular</div>
+          <div style="font-weight:800;font-size:16px;color:var(--tp);margin-top:12px">Pro</div>
+          <div style="font-weight:800;font-size:22px;color:var(--tp);line-height:1.1">299 <span style="font-size:13px;font-weight:300;color:var(--ts)">EUR/mes</span></div>
+          <div style="font-size:11px;font-weight:300;color:var(--tm);margin-top:2px">Setup: 1.200 EUR</div>
+        </th>
+        <th style="padding:16px 20px;text-align:center">
+          <div style="font-weight:800;font-size:16px;color:var(--tp)">Agencia</div>
+          <div style="font-weight:800;font-size:22px;color:var(--tp);line-height:1.1">449 <span style="font-size:13px;font-weight:300;color:var(--ts)">EUR/mes</span></div>
+          <div style="font-size:11px;font-weight:300;color:var(--tm);margin-top:2px">Setup: 1.800 EUR</div>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- SECCIÓN: PARA QUIÉN ES -->
+      <tr><td colspan="4" style="padding:20px 20px 8px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--tm);background:rgba(255,255,255,.015)">Para quién es</td></tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Perfil</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px">Agente independiente o agencia de 1 persona</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px;background:rgba(200,240,117,.03)">Agencia con equipo de 2 a 5 agentes</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px">Agencia grande, franquicia o multi-oficina</td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px"><div style="font-weight:500;color:var(--tp);font-size:13px">Usuarios</div></td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px">1 usuario</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px;background:rgba(200,240,117,.03)">Hasta 3 usuarios</td>
+        <td style="padding:14px 20px;text-align:center;font-weight:700;color:var(--tp);font-size:12px">Ilimitados</td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px"><div style="font-weight:500;color:var(--tp);font-size:13px">Leads en el CRM</div></td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px">Hasta 200</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px;background:rgba(200,240,117,.03)">Hasta 500</td>
+        <td style="padding:14px 20px;text-align:center;font-weight:700;color:var(--tp);font-size:12px">Ilimitados</td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px"><div style="font-weight:500;color:var(--tp);font-size:13px">Propiedades activas</div></td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px">Hasta 20</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px;background:rgba(200,240,117,.03)">Hasta 50</td>
+        <td style="padding:14px 20px;text-align:center;font-weight:700;color:var(--tp);font-size:12px">Ilimitadas</td>
+      </tr>
+
+      <!-- SECCIÓN: CRM Y PIPELINE -->
+      <tr><td colspan="4" style="padding:20px 20px 8px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--tm);background:rgba(255,255,255,.015)">CRM y Pipeline</td></tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Pipeline kanban</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">7 etapas del proceso comercial</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center;background:rgba(200,240,117,.03)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Historial de conversación</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Cada mensaje del chatbot guardado por lead</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center;background:rgba(200,240,117,.03)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Asignación de leads</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Repartir leads entre agentes</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2)">—</td>
+        <td style="padding:14px 20px;text-align:center;background:rgba(200,240,117,.03)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Panel de rendimiento del equipo</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Métricas por agente: leads, cierres, actividad</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2)">—</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2);background:rgba(200,240,117,.03)">—</td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> <span style="font-size:10px;background:rgba(200,240,117,.12);color:var(--lima);border:0.5px solid rgba(200,240,117,.25);padding:2px 7px;border-radius:100px;margin-left:4px">solo Agencia</span></td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Base de compradores compartida</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Todos los agentes ven el pool completo de compradores</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2)">—</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2);background:rgba(200,240,117,.03)">—</td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> <span style="font-size:10px;background:rgba(200,240,117,.12);color:var(--lima);border:0.5px solid rgba(200,240,117,.25);padding:2px 7px;border-radius:100px;margin-left:4px">solo Agencia</span></td>
+      </tr>
+
+      <!-- SECCIÓN: CHATBOT Y CAPTACIÓN -->
+      <tr><td colspan="4" style="padding:20px 20px 8px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--tm);background:rgba(255,255,255,.015)">Chatbot y Captación</td></tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Chatbot WhatsApp 24/7</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Responde, califica y agenda leads automáticamente</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center;background:rgba(200,240,117,.03)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Chatbot Instagram + Web</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">DMs de Instagram y formularios del sitio web</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2)">—</td>
+        <td style="padding:14px 20px;text-align:center;background:rgba(200,240,117,.03)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Secuencias de seguimiento</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Email + WhatsApp automático a los 7 y 14 días</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center;background:rgba(200,240,117,.03)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+      </tr>
+
+      <!-- SECCIÓN: MATCHING Y PUBLICACIÓN -->
+      <tr><td colspan="4" style="padding:20px 20px 8px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--tm);background:rgba(255,255,255,.015)">Matching y Publicación</td></tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Motor de matching básico</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Cruza propiedades con leads del agente que la sube</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2)">—</td>
+        <td style="padding:14px 20px;text-align:center;background:rgba(200,240,117,.03)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Matching cruzado total</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Cruza con los compradores de TODOS los agentes del equipo</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2)">—</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2);background:rgba(200,240,117,.03)">—</td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> <span style="font-size:10px;background:rgba(200,240,117,.12);color:var(--lima);border:0.5px solid rgba(200,240,117,.25);padding:2px 7px;border-radius:100px;margin-left:4px">solo Agencia</span></td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Publicador con IA</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Genera el anuncio y publica en portales</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2)">—</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px;background:rgba(200,240,117,.03)">Hasta 3 portales</td>
+        <td style="padding:14px 20px;text-align:center;font-weight:700;color:var(--tp);font-size:12px">Portales ilimitados</td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px"><div style="font-weight:500;color:var(--tp);font-size:13px">Portales conectados</div></td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2)">—</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px;background:rgba(200,240,117,.03)">Idealista + Fotocasa + 1 más</td>
+        <td style="padding:14px 20px;text-align:center;font-weight:700;color:var(--tp);font-size:12px">Todos + API propia</td>
+      </tr>
+
+      <!-- SECCIÓN: REPUTACIÓN -->
+      <tr><td colspan="4" style="padding:20px 20px 8px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--tm);background:rgba(255,255,255,.015)">Reputación</td></tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Reviews automáticos Google</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Se activan 24h después de cerrar una venta</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center;background:rgba(200,240,117,.03)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Secuencia de referidos</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Activa campaña de referidos tras review positiva</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2)">—</td>
+        <td style="padding:14px 20px;text-align:center;background:rgba(200,240,117,.03)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+      </tr>
+
+      <!-- SECCIÓN: REPORTES Y SOPORTE -->
+      <tr><td colspan="4" style="padding:20px 20px 8px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--tm);background:rgba(255,255,255,.015)">Reportes y Soporte</td></tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Informe mensual PDF</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Leads, ventas y automatizaciones del mes</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2)">—</td>
+        <td style="padding:14px 20px;text-align:center;background:rgba(200,240,117,.03)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Informe semanal automático</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Resumen de actividad cada lunes</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2)">—</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2);background:rgba(200,240,117,.03)">—</td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> <span style="font-size:10px;background:rgba(200,240,117,.12);color:var(--lima);border:0.5px solid rgba(200,240,117,.25);padding:2px 7px;border-radius:100px;margin-left:4px">solo Agencia</span></td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px"><div style="font-weight:500;color:var(--tp);font-size:13px">Llamada de revisión mensual</div></td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2)">—</td>
+        <td style="padding:14px 20px;text-align:center;background:rgba(200,240,117,.03)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px"><div style="font-weight:500;color:var(--tp);font-size:13px">Tiempo de respuesta de soporte</div></td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px">48 horas</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px;background:rgba(200,240,117,.03)">12 horas</td>
+        <td style="padding:14px 20px;text-align:center;font-size:12px">
+          <span style="color:var(--tp);font-weight:700">4 horas</span>
+          <span style="font-size:10px;background:rgba(200,240,117,.12);color:var(--lima);border:0.5px solid rgba(200,240,117,.25);padding:2px 7px;border-radius:100px;margin-left:4px">solo Agencia</span>
+        </td>
+      </tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Integraciones a medida</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">APIs propias, software del cliente, Habitaclia, etc.</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2)">—</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--brd2);background:rgba(200,240,117,.03)">—</td>
+        <td style="padding:14px 20px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F075" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> <span style="font-size:10px;background:rgba(200,240,117,.12);color:var(--lima);border:0.5px solid rgba(200,240,117,.25);padding:2px 7px;border-radius:100px;margin-left:4px">solo Agencia</span></td>
+      </tr>
+
+      <!-- SECCIÓN: TUS MÁRGENES NETOS -->
+      <tr><td colspan="4" style="padding:20px 20px 8px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--tm);background:rgba(255,255,255,.015)">Tus márgenes netos</td></tr>
+      <tr style="border-bottom:0.5px solid var(--brd)">
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Setup neto</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Tras comisiones de closer y técnico</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px">~300 EUR</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px;background:rgba(200,240,117,.03)">~650 EUR</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px">~900 EUR</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 20px">
+          <div style="font-weight:500;color:var(--tp);font-size:13px">Recurrente neto/mes</div>
+          <div style="font-size:11px;color:var(--tm);margin-top:2px">Tras stack técnico y comisiones</div>
+        </td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px">~95 EUR/mes</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px;background:rgba(200,240,117,.03)">~204 EUR/mes</td>
+        <td style="padding:14px 20px;text-align:center;color:var(--ts);font-size:12px">~314 EUR/mes</td>
+      </tr>
+
+      <!-- FILA FINAL: BOTONES -->
+      <tr style="border-top:0.5px solid var(--brd);background:rgba(255,255,255,.015)">
+        <td style="padding:20px"></td>
+        <td style="padding:20px;text-align:center"><a href="#reservar" class="btn-plan" style="display:inline-flex;padding:10px 20px;border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;color:var(--ts);border:0.5px solid var(--grafito);transition:all .2s">Ver Starter</a></td>
+        <td style="padding:20px;text-align:center;background:rgba(200,240,117,.03)"><a href="#reservar" class="btn-plan bft" style="display:inline-flex;padding:10px 20px;border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;color:var(--negro);background:var(--lima);border:none;transition:all .2s">Ver Pro</a></td>
+        <td style="padding:20px;text-align:center"><a href="#reservar" class="btn-plan" style="display:inline-flex;padding:10px 20px;border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;color:var(--ts);border:0.5px solid var(--grafito);transition:all .2s">Ver Agencia</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 </section>
 
 <!-- RESERVA -->
