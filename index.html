@@ -1302,6 +1302,25 @@ document.getElementById('cf-submit').addEventListener('click',()=>{
   document.getElementById('cform-fields').style.display='none';
   document.getElementById('cf-success').style.display='block';
 });
+     // Toggle tabla comparación
+const toggleBtn = document.getElementById('toggle-compare');
+const compareTable = document.getElementById('compare-table');
+const toggleArrow = document.getElementById('toggle-arrow');
+let tableOpen = false;
+
+toggleBtn.addEventListener('click', () => {
+  tableOpen = !tableOpen;
+  if (tableOpen) {
+    compareTable.style.display = 'block';
+    toggleBtn.querySelector('span') && null;
+    toggleArrow.style.transform = 'rotate(180deg)';
+    toggleBtn.childNodes[0].textContent = 'Ocultar comparación ';
+  } else {
+    compareTable.style.display = 'none';
+    toggleArrow.style.transform = 'rotate(0deg)';
+    toggleBtn.childNodes[0].textContent = 'Ver comparación completa ';
+  }
+});
 </script>
 </body>
 </html>
